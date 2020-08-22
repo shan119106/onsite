@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title></title>
+	<style type="text/css">
+		div{
+			background-color: #ddd;
+			
+			width:100%;
+			height: 100%;
+		}
+		textarea{
+			width:500px;
+			height: 500px;
+			border:none;
+			display: block;
+			
+		}
+		button{
+			width: 40px;
+			height:40px;
+			padding: 5px 10px;
+		}
+		.bold{
+			font-weight: bold;
+		}
+		.italic{
+			font-style: italic;
+		}
+		.background{
+			background-color: #ddd;
+		}
+		.times {
+		  font-family: "Times New Roman", Times, serif;
+		
+		}
+
+		.arial{
+		  font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.lucida {
+		  font-family: "Lucida Console", Courier, monospace;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+	<button value='b'>B</button>
+	<button value='i'>I</button>
+	
+	<select id="select">
+		<option value="" selected disabled>--select font--</option>
+		<option value="times" class="times">times new roman</option>
+		<option value="arial" class="arial">Arial</option>
+		<option value="lucida" class="lucida">lucida console</option>
+	</select>
+	<textarea id="content"></textarea>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		"use strict";
+	
+
+	
+		 $('button').click(function(){
+
+		 	if($(this).val()=='b'){
+		 		
+		 		$('textarea').toggleClass('bold');
+		 		$(this).toggleClass('background');
+		 	} 
+		 	else if($(this).val()=='i'){
+		 		$('textarea').toggleClass('italic');
+		 		$(this).toggleClass('background');
+		 	}
+		 });
+		 $('#select').change(function(){
+		 	var font=$('#select option:selected').val();
+		 	if(font="times"){
+		 	$('textarea').css('font-family',"Times New Roman, Times, serif");
+			 }
+			 else if(font="arial"){
+			 	$('textarea').css('font-family',"Arial, Helvetica, sans-serif");
+			 }
+			 else if(font="lucida"){
+			 	$('textarea').css('font-family',"Lucida Console, Courier, monospace");
+			 }
+
+		 });
+	
+	});
+</script>
+</body>
+</html>
